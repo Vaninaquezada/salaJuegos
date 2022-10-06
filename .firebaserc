@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "tplab4-45942": {
+      "hosting": {
+        "salaJuegos": [
+          "tplab4-45942"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "tplab4-45942"
+  }
+}

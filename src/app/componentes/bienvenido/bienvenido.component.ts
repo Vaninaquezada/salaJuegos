@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-
+import { AuthService } from 'src/app/servicios/auth.service';
+import { Observable } from 'rxjs';
 @Component({
   selector: 'app-bienvenido',
   templateUrl: './bienvenido.component.html',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BienvenidoComponent implements OnInit {
 
-  constructor() { }
+  constructor(private authSvc: AuthService) { }
 
   ngOnInit(): void {
   }
