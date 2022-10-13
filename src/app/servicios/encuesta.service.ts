@@ -3,6 +3,8 @@ import { Router } from '@angular/router';
 import { AuthService } from './auth.service';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import firebase from "firebase/compat/app";
+import { switchMap, map } from 'rxjs/operators';
+import { Observable } from 'rxjs';
 import { Encuesta } from '../clases/encuesta';
 @Injectable({
   providedIn: 'root'
@@ -10,13 +12,13 @@ import { Encuesta } from '../clases/encuesta';
 export class EncuestaService {
   mail!: string | null;
   constructor(private afs: AngularFirestore, private authSvc: AuthService, private router: Router) {
-    this.getUseMail();
+    this.getUserMail();
   }
 
 
 
   addEncuesta(encuesta: Encuesta) {
-    this.getUseMail();
+    this.getUserMail();
     return this.afs.collection('encuesta').add({
       user: this.mail,
       pregunta1: encuesta.pregunta1,
@@ -33,7 +35,26 @@ export class EncuestaService {
       createdAt: firebase.firestore.FieldValue.serverTimestamp()
     });
   }
-  private async getUseMail() {
+
+  getEncuestas() {
+    this.getUserMail();
+    let listas = [];
+    this.getUserMail();
+    return this.getEncuesta().pipe(
+      switchMap(res => {
+        listas = res;
+        return this.afs.collection('encuesta', ref => ref.orderBy('createdAt', 'desc')).valueChanges({ idField: 'id' }) as Observable<Encuesta[]>;
+      }),
+
+    )
+
+  }
+
+  private getEncuesta() {
+    return this.afs.collection('encuesta', ref => ref.orderBy('createdAt', 'desc')).valueChanges({ idField: 'id' }) as Observable<Encuesta[]>;
+  }
+
+  private async getUserMail() {
     if (await this.authSvc.getUsuarioFire()) {
       this.mail = this.authSvc.getUsuarioFire()?.email!;
      console.log(this.mail);

@@ -43,16 +43,7 @@ export class ListadoService {
         listas = res;
         return this.afs.collection('listados', ref => ref.orderBy('createdAt', 'desc')).valueChanges({ idField: 'id' }) as Observable<Lista[]>;
       }),
-      /* 
-       map(listas => {
-         // Get the real name for each user
-         for (let l of listas) {
-           l.usuario = this.mail;
-           l.myMsg = this.mail === l.usuario;
-         }
-         
-         return listas
-       })*/
+
     )
 
   }

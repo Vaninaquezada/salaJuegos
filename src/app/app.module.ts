@@ -25,6 +25,7 @@ import { QuiensoyComponent } from './componentes/quiensoy/quiensoy.component';
 import { EncuestaComponent } from './componentes/encuesta/encuesta.component';
 import { JuegosModule } from './componentes/juegos/juegos.module';
 import { AngularFireModule } from '@angular/fire/compat';
+import { ResultadosEncuestaComponent } from './componentes/resultados-encuesta/resultados-encuesta.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,7 +37,8 @@ import { AngularFireModule } from '@angular/fire/compat';
     MenuComponent,
     ListadosComponent,
     QuiensoyComponent,
-    EncuestaComponent
+    EncuestaComponent,
+    ResultadosEncuestaComponent
   ],
   imports: [
     BrowserModule,

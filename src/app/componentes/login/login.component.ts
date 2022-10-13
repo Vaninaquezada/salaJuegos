@@ -38,14 +38,16 @@ export class LoginComponent implements OnInit {
       }
 
     } catch (error: any) {
-      console.log("pagina error " + error.code);
+      console.log("pagina error " + error);
+        
+      console.log("error.message " + error.message);
       /*  if (error instanceof Error) {
   
           console.log("error.message " + error.message);
           console.log("error.name " + error);
         }
         */
-      this.message = this.error.getError(error.code);
+      this.message = error.message;
 
     }
 
@@ -60,10 +62,16 @@ export class LoginComponent implements OnInit {
     switch (seleccion) {
       case "admin":
 
-        this.loginForm.setValue({ email: "usuario@usuario.com", password: "123456" });
+        this.loginForm.setValue({ email: "admin@admin.com", password: "111111" });
         console.log(this.loginForm.value);
 
         break;
+        case "usuario":
+
+          this.loginForm.setValue({ email: "usuario@usuario.com", password: "123456" });
+          console.log(this.loginForm.value);
+  
+          break;
       case "fulanito":
         // this.usuario ="fulanito@user.com";
         // this.clave ="222222";

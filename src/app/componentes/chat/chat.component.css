@@ -118,6 +118,8 @@ body {
 
 .chatbox__send--footer {
     color: white;
+    font-weight: 400;
+
 }
 
 .chatbox__button button,

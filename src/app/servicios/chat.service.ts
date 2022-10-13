@@ -60,7 +60,7 @@ export class ChatService {
   private async getUseMail() {
     if (await this.authSvc.getUsuarioFire()) {
       this.mail = this.authSvc.getUsuarioFire()?.email!;
-     console.log(this.mail);
+
     } else {
       this.mail = "usuario anonimo";
     }

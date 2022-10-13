@@ -23,6 +23,7 @@ export class AhorcadoComponent implements OnInit {
   palabras = ["casa", "bebida", "gato", "perro", "elefante", "mesa", "silla", "computadora", "typescript", "javascript"]
   imagen!: string;
   start: string;
+  palabrita="";
   resultado: string;
   constructor(private listado: ListadoService) {
     this.letters = [];
@@ -31,6 +32,7 @@ export class AhorcadoComponent implements OnInit {
     this.resultado = "";
     this.movimientos = 0;
     this.start = "visible";
+    this.palabrita = "";
 
   }
   ngOnInit(): void {
@@ -54,8 +56,10 @@ export class AhorcadoComponent implements OnInit {
         "resultado": "Gano",
         "clicks": this.movimientos.toString(),
         "juego": "Ahorcado",
+        "correctas": "N/A",
         "errores": (this.MAX_ATTEMPTS - this.remainingAttempts).toString(),
       }
+
       this.listado.addResultado(res)
     }
     if (this.playerLoses()) {
@@ -101,10 +105,10 @@ export class AhorcadoComponent implements OnInit {
     this.remainingAttempts = this.MAX_ATTEMPTS;
   }
   async chooseWord() {
-
+    this.palabrita = "";
     // Choose random
     let word = this.palabras[Math.floor(Math.random() * this.palabras.length)];
-
+    this.palabrita = word;
     console.log("Palabra: " + word);
     this.prepareWord(word);
   }

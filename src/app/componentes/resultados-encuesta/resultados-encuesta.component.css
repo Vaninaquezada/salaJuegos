@@ -1,8 +1,5 @@
-table {
+table, th, td{
     color: rgb(13, 96, 107);
     font-weight: bolder;
-    border-bottom: 2px,solid,palevioletred;
-}
-th, td {
     border-bottom: 2px solid palevioletred;
-  }
+}

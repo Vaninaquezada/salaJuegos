@@ -8,6 +8,8 @@ import { ListadosComponent } from './componentes/listados/listados.component';
 import { LoginComponent } from './componentes/login/login.component';
 import { QuiensoyComponent } from './componentes/quiensoy/quiensoy.component';
 import { RegistroComponent } from './componentes/registro/registro.component';
+import { ResultadosEncuestaComponent } from './componentes/resultados-encuesta/resultados-encuesta.component';
+import { AdminGuard } from './guard/admin.guard';
 import { LogueadoGuard } from './guard/logueado.guard';
 
 const routes: Routes = [ 
@@ -18,6 +20,7 @@ const routes: Routes = [
    { path: 'error', component: ErrorComponent },
    { path: 'encuesta', component: EncuestaComponent },
    { path: 'listados', component: ListadosComponent },
+   { path: 'encuestaresultados', component: ResultadosEncuestaComponent, canActivate: [AdminGuard]  },
    { path: 'juegos', loadChildren: () => import('./componentes/juegos/juegos.module').then(m => m.JuegosModule), canActivate: [LogueadoGuard] }
   
   ];

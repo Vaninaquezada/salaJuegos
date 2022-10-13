@@ -55,7 +55,7 @@ export class EncuestaComponent implements OnInit {
 
 
     this.enSvc.addEncuesta(this.encuesta);
-    this.router.navigate(['/home']);
+    this.router.navigate(['/bienvenido']);
 
   }
   async getmail() {

@@ -22,7 +22,7 @@ export class ChatComponent implements OnInit {
 
   ngOnInit(): void {
     this.messages = this.chatSer.getChatMessages();
-    console.log(this.messages)
+  
   }
 
 
@@ -44,7 +44,7 @@ export class ChatComponent implements OnInit {
   sendMessage() {
     this.chatSer.addChatMessage(this.newMsg).then(() => {
       this.newMsg = '';
-      this.content.scrollToBottom();
+     // this.content.scrollToBottom();
     });
   }
 

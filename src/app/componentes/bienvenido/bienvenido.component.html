@@ -1,3 +1,4 @@
+
 <div class="containerD">
     <br>
     <div class="hero-text">
@@ -13,7 +14,6 @@
                 <h2>Juegos </h2>
             </div>
         </div>
-
         <div class="fill" routerLink="/encuesta">
             <span></span>
             <div class="content">
@@ -21,7 +21,7 @@
             </div>
         </div>
 
-        <div class="fill" routerLink="/listados">
+        <div class="fill" routerLink="/listados" >
             <span></span>
             <div class="content">
                 <h2>Resultados</h2>
@@ -29,9 +29,22 @@
             </div>
         </div>
 
+        <div *ngIf="usuario">
+            
+            <div class="fill"  routerLink="/encuestaresultados" *ngIf="usuario.rol === 'admin'">
+                <span></span>
+                <div class="content">
+                    <h2>Resultados Encuestas</h2>
+
+                </div>
+            </div>
+        </div>
+
+        
+
 
     </div>
     <div class="chat">
-     
+        <app-chat *ngIf=" user2$ | async user"></app-chat>
     </div>
 </div>

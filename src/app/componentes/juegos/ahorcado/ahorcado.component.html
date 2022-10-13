@@ -4,12 +4,14 @@
             Click para empezar
         </div>
         <div id="victory-text" class="overlay-text {{resultado}}" (click)="clickBoton()">
-            {{mensaje}}
-            <span class="overlay-text-small"><br> <br> <br> <br>Click para jugar de nuevo</span>
+            
+            <span class="overlay-text-small"> {{mensaje}}</span>
+                <span class="overlay-text-small">Click para jugar de nuevo</span>
         </div>
         <div class="col-12 text-center">
             <h1 class="text-success">Ahorcado</h1>
             <h3 class="displayed-word">Palabra: {{displayedWord}}</h3>
+            {{palabrita}}
             <p class="h4 text-danger">Intentos restantes: {{remainingAttempts}}</p>
 
             <br>

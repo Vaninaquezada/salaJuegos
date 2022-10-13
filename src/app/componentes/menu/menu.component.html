@@ -6,7 +6,7 @@
     </button>
 
     <div class="collapse navbar-collapse" id="navbarColor02">
-        <ul class="navbar-nav mr-auto" *ngIf="user !== null; else login">
+        <ul class="navbar-nav mr-auto" *ngIf="user2$ | async as user; else login">
             <li class="nav-item active">
                 <a class="nav-link" routerLink="/bienvenido">Home
 
@@ -19,9 +19,9 @@
                 <a class="nav-link" routerLink="/juegos">Juegos</a>
             </li>
             <li class="nav-item" *ngIf="user">
-                <span class="nav-link"></span>
+                <span class="nav-link">{{user?.email }}</span>
             </li>
-            <li class="nav-item" *ngIf="user">
+            <li class="nav-item my-lg-0" *ngIf="user">
                 <a class="nav-link" (click)="logOut()">Logout</a>
             </li>
         </ul>
@@ -33,6 +33,9 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" routerLink="/registro">Registro</a>
+                </li>
+                <li class="nav-item my-lg-0" >
+                    <a class="nav-link" (click)="logOut()">Logout</a>
                 </li>
             </ul>
         </ng-template>
